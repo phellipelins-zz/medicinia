@@ -1,0 +1,31 @@
+<div id="notification" class="notification">
+  <h1 class="notification__title">Notificações</h1>
+  
+  <div class="notification__filter filter">
+    <label for="name" class="filter__label">Filtrar</label>
+    <div class="filter__input-group">
+      <div class="filter__input-group__text-with-icon">
+        <i class="fa fa-search"></i>
+        <input type="text" placeholder="Buscar por nome">
+      </div>
+      <button class="filter__button active"><i class="fa fa-archive"></i></button>
+      <button class="filter__button"><i class="fa fa-star"></i></button>
+    </div>
+    <div class="filter__checkboxes">
+      <label class="filter__checkbox">
+        <input type="checkbox" value="exame"> Exame
+      </label>
+      <label class="filter__checkbox">
+        <input type="checkbox" value="consulta"> Consulta
+      </label>
+      <label class="filter__checkbox">
+        <input type="checkbox" value="cirurgia"> Cirurgia
+      </label>
+    </div>
+  </div>
+
+  <div class="notification__list">
+    <notification-card></notification-card>
+  </div>
+  <a href="#" class="notification__load-more">Carregar Mais</a>
+</div>
