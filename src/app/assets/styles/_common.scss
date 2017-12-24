@@ -1,0 +1,11 @@
+.custom-btn {
+  color: $white;
+
+  &.custom-btn--blue {
+    background-color: $blue;
+  }
+
+  &.custom-btn--green {
+    background-color: $green;
+  }
+}
