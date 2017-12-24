@@ -1,5 +1,14 @@
+@import '../../node_modules/jeet/scss/index';
+
 main#main {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
   overflow: hidden;
+  box-sizing: border-box;
+  padding-top: 55px;
+}
+
+.content {
+  height: 100%;
+  @include clearfix();
 }
