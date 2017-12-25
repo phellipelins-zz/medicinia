@@ -1,0 +1,153 @@
+@import '../../assets/styles/styles.scss';
+
+.card {
+  border-radius: 5px;
+  border: 2px solid $gray;
+
+  &__header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    &__datetime {
+      line-height: 24px;
+      box-sizing: border-box;
+      padding: 0 15px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      color: $darkgray;
+      text-align: right;
+      display: block;
+    }
+
+    &__category {
+      line-height: 28px;
+      box-sizing: border-box;
+      padding: 0 15px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: $white;
+      display: block;
+      letter-spacing: 0.5px;
+      
+      &.exame {
+        background-color: darken($blue, 30%)
+      }
+
+      &.consulta {
+        background-color: $orange;
+      }
+
+      &.cirurgia {
+        background-color: $purple;
+      }
+    }
+  }
+
+  &__content {
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .patient-data {
+
+    &__name {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: baseline;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: $blue;
+    }
+
+    &__link {
+      color: $black;
+      margin-left: 10px;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    &__generic {
+      margin-top: 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: $black;
+
+      &__title {
+        display: block;
+        font-style: italic;
+      }
+
+      &__text {
+        margin: 0;
+      }
+    }
+  }
+
+  &__footer {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: $lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 15px;
+    height: 35px;
+
+    &__meta {
+      display: flex;
+      align-items: center;
+    }
+
+    &__meta--archive {
+      color: $white;
+      padding: 5px;
+      font-size: 18px;
+
+      &.active {
+        color: $darkgray;
+      }
+    }
+
+    &__meta--star {
+      color: $white;
+      padding: 5px;
+      font-size: 18px;
+
+      &.active {
+        color: $gold;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      
+      button {
+        width: 90px;
+        line-height: 18px;
+        font-family: 'Roboto';
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        text-align: center;
+        text-decoration: none;
+        border: 2px solid transparent;
+        transition: all 300ms ease;
+        border-radius: 5px;
+        margin-left: 5px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
