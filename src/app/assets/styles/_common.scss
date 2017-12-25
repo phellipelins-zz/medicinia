@@ -1,11 +1,25 @@
 .custom-btn {
   color: $white;
+  transition: all 300ms ease;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 
   &.custom-btn--blue {
     background-color: $blue;
+
+    &:hover {
+      background-color: darken($blue, 10%);
+    }
   }
 
   &.custom-btn--green {
     background-color: $green;
+
+    &:hover {
+      background-color: darken($green, 10%);
+    }
   }
 }
