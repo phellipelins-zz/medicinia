@@ -1,7 +1,7 @@
 <div id="patient" class="patient" *ngIf="patient">
-  <img src="{{ patient.avatar_url || './assets/images/doctor_profile.jpg' }}" alt="" class="patient__img">
-  <h1 class="patient__name">{{ patient.name || 'Nome do Paciente' }}</h1>
-  <span class="patient__age">{{ patient.age || 32 }} anos <i class="fa fa-{{ patient.gender }}"></i></span>
+  <img src="{{ patient.avatar_url || '' }}" alt="" class="patient__img">
+  <h1 class="patient__name">{{ patient.name || '[no name]' }}</h1>
+  <span class="patient__age">{{ patient.age || '0' }} anos <i class="fa fa-{{ patient.gender }}"></i></span>
 
   <div class="patient__tags">
     <button class="patient__tag patient__tag--add"><i class="fa fa-plus"></i></button>
