@@ -6,7 +6,7 @@
 
   <div class="card__content patient-data">
     <span class="patient-data__name">
-      Mariana Cardoso Cavalcanti
+      {{ patient.name || "[no name]" }}
       <button (click)="updatePatient(notification.patient_id)" class="patient-data__link">Ver Mini-Perfil</button>
     </span>
     <div class="patient-data__generic">
