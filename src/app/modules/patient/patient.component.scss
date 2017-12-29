@@ -10,11 +10,11 @@
   background-color: #FAFAFA;
 
   @media (min-width: 480px) {
-    @include column(4/10);
+    @include column(5/12);
   }
 
   @media (min-width: 993px) {
-    @include column(4/11);
+    @include column(4/12);
   }
 
   &__img {
@@ -166,7 +166,8 @@
     }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
 
       i.fa {
         color: $blue;

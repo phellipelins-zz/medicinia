@@ -22,7 +22,7 @@
       <i class="fa fa-folder"></i>
       <span>Arquivos</span>
     </button>
-    <button class="patient__button">
+    <button class="patient__button" [ngClass]="{'active': examVisible}" (click)="showExam()">
       <i class="fa fa-search"></i>
       <span>Exames</span>
     </button>

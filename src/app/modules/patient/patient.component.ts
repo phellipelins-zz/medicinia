@@ -11,7 +11,9 @@ import { NoteService } from '../../services/note/note.service';
 })
 export class PatientComponent implements OnInit, OnChanges {
   @Input() currentPatientId: any;
-  patient: any;
+  @Input() examVisible: any;
+  @Output() onShowExam = new EventEmitter<any>();
+  patient: Patient;
 
   constructor(
     private patientService: PatientService,
@@ -38,8 +40,15 @@ export class PatientComponent implements OnInit, OnChanges {
     return [tagsObj]
   }
 
+  showExam() {
+    this.onShowExam.emit(true);
+  }
+
   ngOnChanges(changes: SimpleChanges) {
-    if (typeof changes.currentPatientId.previousValue !== 'undefined') {
+    if (
+      typeof changes.currentPatientId !== 'undefined' &&
+      typeof changes.currentPatientId.previousValue !== 'undefined'
+    ) {
       this.getPatient(changes.currentPatientId.currentValue);
     }
   }
