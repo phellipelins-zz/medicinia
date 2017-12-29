@@ -11,7 +11,7 @@ import { Notification } from '../../notification/notification';
 export class NotificationCardComponent implements OnInit {
   @Input() notification: Notification;
   @Output() onPatientChange = new EventEmitter<any>();
-  private patient: Patient = new Patient('...', new Date(), 'female', '', {});
+  private patient: Patient = new Patient('...', new Date(Date.now()), 'female', '', {});
   typeTranslation: any = { 'consultation': 'Consulta',
                            'exam': 'Exame',
                            'surgery': 'Cirurgia' };
@@ -19,6 +19,7 @@ export class NotificationCardComponent implements OnInit {
   constructor(protected patientService: PatientService) { }
 
   ngOnInit() {
+    //TODO: make a 'populate' patient_id on parent component to stop request every init
     this.patientService.getById(this.notification.patient_id).subscribe(
       response => this.patient = response || this.patient,
       err => console.error(err)

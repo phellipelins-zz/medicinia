@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   currentPatientId: any = false;
+  examVisible: any = false;
 
   updatePatient(patient_id) {
-    this.currentPatientId =  patient_id;
+    this.currentPatientId = patient_id;
+  }
+
+  showExam(data) {
+    this.examVisible = data;
   }
 }

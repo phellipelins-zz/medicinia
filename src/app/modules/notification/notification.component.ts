@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NotificationService } from '../../services/notification/notification.service';
 import { Notification } from './notification';
+import { PatientService } from '../../services/patient/patient.service';
+
+import {}
 
 @Component({
   selector: 'notification',
@@ -21,7 +24,9 @@ export class NotificationComponent implements OnInit {
 
   ngOnInit() {
     this.notificationService.getAll().subscribe(
-      response => { this.notifications = response },
+      response => { 
+        this.notifications = response;
+      },
       err => console.error(err)
     );
   }

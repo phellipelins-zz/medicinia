@@ -5,7 +5,13 @@
       (onPatientChange)="updatePatient($event)">
     </notification>
     <patient
+      (onShowExam)="showExam($event)"
+      [examVisible]="examVisible"
       [currentPatientId]="currentPatientId">
     </patient>
+    <exam
+      [isVisible]="examVisible"
+      [currentPatientId]="currentPatientId">
+    </exam>
   </div>
 </main>
