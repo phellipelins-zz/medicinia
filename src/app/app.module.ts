@@ -11,7 +11,6 @@ import { AppService } from './app.service';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { NotificationComponent } from './modules/notification/notification.component';
-import { NotificationCardComponent } from './modules/notification/notification-card/notification-card.component';
 import { PatientComponent } from './modules/patient/patient.component';
 
 @NgModule({
@@ -19,8 +18,7 @@ import { PatientComponent } from './modules/patient/patient.component';
     AppComponent,
     AppHeaderComponent,
     NotificationComponent,
-    NotificationCardComponent,
-    PatientComponent
+    PatientComponent,
   ],
   imports: [
     BrowserModule,

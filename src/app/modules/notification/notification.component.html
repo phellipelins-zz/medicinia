@@ -3,30 +3,47 @@
   
   <div class="notification__filter filter">
     <label for="name" class="filter__label">Filtrar</label>
+
     <div class="filter__input-group">
       <div class="filter__input-group__text-with-icon">
         <i class="fa fa-search"></i>
         <input type="text" placeholder="Buscar por nome">
       </div>
-      <button class="filter__button active"><i class="fa fa-archive"></i></button>
-      <button class="filter__button"><i class="fa fa-star"></i></button>
+
+      <button class="filter__button"
+        [ngClass]="{'active': filterArchived}"
+        (click)="filterArchived = !filterArchived">
+          <i class="fa fa-archive"></i>
+      </button>
+      <button class="filter__button"
+        [ngClass]="{'active': filterFavorite}"
+        (click)="filterFavorite = !filterFavorite">
+          <i class="fa fa-star"></i>
+      </button>
     </div>
+
     <div class="filter__checkboxes">
       <label class="filter__checkbox">
-        <input type="checkbox" value="exame"> Exame
+        <input type="checkbox" value="exame"
+        [checked]="filterType === 'exam'"
+        (change)="filterType = filterType === 'exam' ? '' : 'exam'"> Exame
       </label>
       <label class="filter__checkbox">
-        <input type="checkbox" value="consulta"> Consulta
+        <input type="checkbox" value="consulta"
+        [checked]="filterType === 'consultation'"
+        (change)="filterType = filterType === 'consultation' ? '' : 'consultation'"> Consulta
       </label>
       <label class="filter__checkbox">
-        <input type="checkbox" value="cirurgia"> Cirurgia
+        <input type="checkbox" value="cirurgia"
+        [checked]="filterType === 'surgery'"
+        (change)="filterType = filterType === 'surgery' ? '' : 'surgery'"> Cirurgia
       </label>
     </div>
   </div>
 
   <div class="notification__list" *ngIf="notifications">
     <notification-card
-      *ngFor="let notification of notifications"
+      *ngFor="let notification of notifications | notificationFilter:filterType:filterArchived:filterFavorite"
       (onPatientChange)="updatePatient($event)"
       [notification]="notification">
     </notification-card>
