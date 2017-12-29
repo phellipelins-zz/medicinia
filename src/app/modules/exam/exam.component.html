@@ -1,0 +1,30 @@
+<div id="exam" class="exam" *ngIf="isVisible">
+  <h1 class="exam__title">
+    <i class="fa fa-search"></i> Exames
+  </h1>
+
+  <button class="exam__new" (click)="showExamForm()">Solicitar Novo Exame</button>
+
+  <section id="exam__form" class="exam__form" [ngClass]="{'active': showForm}" (click)="hideExamForm($event)">
+    <div class="exam__form__container">
+      <h1 class="exam__form__title">Solicitar Novo Exame</h1>
+      <textarea [(ngModel)]="examContent" placeholder="Conteúdo do Exame"></textarea>
+      <button (click)="addExam()">Solicitar</button>
+    </div>
+  </section>
+
+  <div class="exam__filter">
+    <div class="input-group">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Buscar por título">
+    </div>
+  </div>
+
+  <div class="exam__list">
+    <div class="exam__item">
+      <img class="exam__item__img" src="" alt="" width="50" height="50">
+      <span class="exam__item__title">Título do Exame</span>
+      <span class="exam__item__date"><b>Data de Realização: </b>09/06/2017</span>
+    </div>
+  </div>
+</div>
