@@ -1,0 +1,38 @@
+<div id="patient" class="patient" *ngIf="patient">
+  <img src="{{ patient.avatar_url || './assets/images/doctor_profile.jpg' }}" alt="" class="patient__img">
+  <h1 class="patient__name">{{ patient.name || 'Nome do Paciente' }}</h1>
+  <span class="patient__age">{{ patient.age || 32 }} anos <i class="fa fa-{{ patient.gender }}"></i></span>
+
+  <div class="patient__tags">
+    <button class="patient__tag patient__tag--add"><i class="fa fa-plus"></i></button>
+    <span class="patient__tag" *ngFor="let tag of extractTags(patient.tags)">{{ tag }}</span>
+  </div>
+
+  <div class="patient__generic-data">
+    <span class="patient__generic-data__title">Dado Genérico 1</span>
+    <p class="patient__generic-data__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at condimentum nibh. Proin quis ultrices ex, vel maximus dui.</p>
+  </div>
+  <div class="patient__generic-data">
+    <span class="patient__generic-data__title">Dado Genérico 1</span>
+    <p class="patient__generic-data__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at condimentum nibh. Proin quis ultrices ex, vel maximus dui.</p>
+  </div>
+
+  <div class="patient__actions">
+    <button class="patient__button">
+      <i class="fa fa-folder"></i>
+      <span>Arquivos</span>
+    </button>
+    <button class="patient__button">
+      <i class="fa fa-search"></i>
+      <span>Exames</span>
+    </button>
+    <button class="patient__button">
+      <i class="fa fa-file"></i>
+      <span>Receitas</span>
+    </button>
+    <button class="patient__button">
+      <i class="fa fa-list"></i>
+      <span>Histórico</span>
+    </button>
+  </div>
+</div>

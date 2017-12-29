@@ -1,0 +1,198 @@
+@import '../../../../node_modules/jeet/scss/index';
+@import '../../assets/styles/styles.scss';
+
+.patient {
+  width: 100%;
+  min-height: 100%;
+  border-right: 1px solid #FAFAFA;
+  box-sizing: border-box;
+  padding: 2%;
+
+  @media (min-width: 480px) {
+    @include column(4/10);
+  }
+
+  @media (min-width: 993px) {
+    @include column(4/11);
+  }
+
+  &__img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__name {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: $black;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  &__age {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: $darkgray;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .fa-female {
+      color: pink;
+    }
+  }
+  
+  &__tag {
+    display: block;
+    white-space: nowrap;
+    color: $white;
+    border-top: 2px solid $orange;
+    border-bottom: 2px solid $orange;
+    border-left: 2px solid $orange;
+    background-color: $orange;
+    border-right: none;
+    position: relative;
+    z-index: 1;
+    height: 25px;
+    line-height: 22px;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-right: 15px;
+    margin-top: 10px;
+    transition: all 300ms ease;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
+
+    &:focus {
+      outline: none;
+    }
+    
+    &:before {
+      content: '';
+      display: block;
+      width: 15px;
+      height: 15px;
+      border-radius: 5px;
+      border-top: 2px solid $orange;
+      border-right: 2px solid $orange;
+      border-left: 2px solid transparent;
+      border-bottom: 2px solid transparent;
+      background-color: $orange;
+      position: absolute;
+      right: -6px;
+      top: 1px;
+      z-index: -1;
+      transform: rotate(45deg);
+    }
+
+    &.patient__tag--add {
+      background-color: $white !important;
+      color: $orange;
+      cursor: pointer;
+
+      &:before {
+        background-color: $white;
+      }
+    }
+  }
+  
+  &__tags {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+  }
+  
+  &__generic-data {
+    margin-top: 15px;
+
+    &__title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      color: $blue;
+      display: block;
+      margin-top: 0;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+    
+    &__text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.5px;
+      color: $darkgray;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    width: 100%;
+    max-width: 320px;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    box-sizing: border-box;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition: all 300ms ease;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus {
+
+      i.fa {
+        color: $blue;
+        background-color: $white;
+        border-color: $blue;
+      }
+    }
+
+    i.fa {
+      color: $white;
+      font-size: 22px;
+      transition: all 300ms ease;
+      background-color: $blue;
+      border-radius: 50%;
+      border: none;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+    }
+
+    span {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      color: $darkgray;
+      margin-top: 5px;
+      text-align: center;
+    }
+  }
+}
