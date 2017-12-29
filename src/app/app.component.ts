@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  currentPatientId: any = false;
 
+  updatePatient(patient_id) {
+    this.currentPatientId =  patient_id;
+  }
 }

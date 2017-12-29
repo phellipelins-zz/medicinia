@@ -1,24 +1,28 @@
 <div class="card">
   <header class="card__header">
-    <span class="card__header__datetime">12/11/2017 - 20:30</span>
-    <span class="card__header__category consulta">Consulta</span>
+    <span class="card__header__datetime">{{ (notification.scheduled_date | date:'short') || '--:--' }}</span>
+    <span class="card__header__category {{ notification.type | lowercase }}">{{ notification.type | i18nSelect: typeTranslation }}</span>
   </header>
 
   <div class="card__content patient-data">
     <span class="patient-data__name">
       Mariana Cardoso Cavalcanti
-      <a href="#" class="patient-data__link">Ver Mini-Perfil</a>
+      <button (click)="updatePatient(notification.patient_id)" class="patient-data__link">Ver Mini-Perfil</button>
     </span>
     <div class="patient-data__generic">
       <span class="patient-data__generic__title">Observações:</span>
-      <p class="patient-data__generic__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at condimentum nibh. Proin quis ultrices ex, vel maximus dui.</p>
+      <p class="patient-data__generic__text">{{ notification.content | slice:1:140 }}...</p>
     </div>
   </div>
 
   <footer class="card__footer">
     <div class="card__footer__meta">
-      <div class="card__footer__meta--archive"><i class="fa fa-archive"></i></div>
-      <div class="card__footer__meta--star"><i class="fa fa-star"></i></div>
+      <div class="card__footer__meta--archive" [ngClass]="{'active': notification.isArchived}">
+        <i class="fa fa-archive"></i>
+      </div>
+      <div class="card__footer__meta--star" [ngClass]="{'active': notification.isFavorite}">
+        <i class="fa fa-star"></i>
+      </div>
     </div>
 
     <div class="card__footer__actions">

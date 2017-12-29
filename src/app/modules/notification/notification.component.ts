@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NotificationService } from '../../services/notification/notification.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { NotificationService } from '../../services/notification/notification.se
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent implements OnInit {
+  notifications: any;
+  @Output() onPatientChange = new EventEmitter<any>();
 
   constructor(
     private notificationService: NotificationService
@@ -14,12 +16,13 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.notificationService.getAll()
-    .then((data) => {
-      console.log('deu bom: ', data);
-    })
-    .catch((err) => {
-      console.error('azedou: ', err);
-    })
+    this.notificationService.getAll().subscribe(
+      response => { this.notifications = response },
+      err => console.error(err)
+    );
+  }
+
+  updatePatient(patient_id) {
+    this.onPatientChange.emit(patient_id);
   }
 }

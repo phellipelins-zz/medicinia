@@ -1,6 +1,11 @@
 <main id="main" class="main">
   <app-header></app-header>
   <div id="content" class="content">
-    <notification></notification>
+    <notification 
+      (onPatientChange)="updatePatient($event)">
+    </notification>
+    <patient
+      [currentPatientId]="currentPatientId">
+    </patient>
   </div>
 </main>

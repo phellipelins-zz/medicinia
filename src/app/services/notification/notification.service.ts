@@ -7,17 +7,9 @@ const API_URL = `${environment.apiUrl}/notification`;
 
 @Injectable()
 export class NotificationService {
-  protected headers: HttpHeaders;
-
-  constructor(protected http: HttpClient) {
-    this.headers = new HttpHeaders({
-      'x-apikey' : '69d03052a08ad4496ce4758478c0aafd085ab',
-      'content-type': 'application/json',
-      'cache-control': 'no-cache'
-    });
-  }
+  constructor(protected http: HttpClient) { }
   
-  public getAll() {
-    return this.http.get(API_URL).toPromise();
+  public getAll(): Observable<any[]> {
+    return this.http.get<any[]>(API_URL)
   }
 }

@@ -3,6 +3,7 @@
 .card {
   border-radius: 5px;
   border: 2px solid $gray;
+  margin-bottom: 5px;
 
   &__header {
     border-top-left-radius: 5px;
@@ -31,16 +32,17 @@
       color: $white;
       display: block;
       letter-spacing: 0.5px;
+      text-transform: capitalize;
       
-      &.exame {
+      &.exam {
         background-color: darken($blue, 30%)
       }
 
-      &.consulta {
+      &.consultation {
         background-color: $orange;
       }
 
-      &.cirurgia {
+      &.surgery {
         background-color: $purple;
       }
     }
@@ -70,6 +72,20 @@
       font-style: italic;
       font-weight: 700;
       text-decoration: none;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 300ms ease;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        border-bottom: 2px solid $black;
+      }
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &__generic {

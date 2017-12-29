@@ -24,8 +24,12 @@
     </div>
   </div>
 
-  <div class="notification__list">
-    <notification-card></notification-card>
+  <div class="notification__list" *ngIf="notifications">
+    <notification-card
+      *ngFor="let notification of notifications"
+      (onPatientChange)="updatePatient($event)"
+      [notification]="notification">
+    </notification-card>
   </div>
   <a href="#" class="notification__load-more">Carregar Mais</a>
 </div>
