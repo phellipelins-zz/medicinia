@@ -3,6 +3,9 @@ import { NotificationService } from '../../services/notification/notification.se
 import { PatientService } from '../../services/patient/patient.service';
 import { Notification } from './notification';
 import { Patient } from '../patient/patient';
+import { PusherService } from '../../app.service';
+
+declare const Pusher: any;
 
 @Component({
   selector: 'notification',
@@ -19,11 +22,17 @@ export class NotificationComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private pusherService: PusherService
   ) {
   }
 
   ngOnInit() {
+    // bind Pusher event
+    this.pusherService.notificationChannel.bind('client-new-notification', (data) => {
+      console.log('push notification to list');
+    })
+
     this.notificationService.getAll().subscribe(
       response => { 
         this.notifications = <Notification[]>response;

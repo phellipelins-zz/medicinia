@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { NotificationModule } from './modules/notification/notification.module';
 import { PatientModule } from './modules/patient/patient.module';
 
-import { AppService } from './app.service';
+import { AppService, PusherService } from './app.service';
 
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
@@ -30,11 +30,14 @@ import { ExamComponent } from './modules/exam/exam.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AppService,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppService,
+      multi: true
+    },
+    PusherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
